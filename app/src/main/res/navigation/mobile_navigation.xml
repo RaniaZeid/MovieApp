@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    android:label="@string/discover"
+    app:startDestination="@+id/navigation_discover">
+
+    <fragment
+        android:id="@+id/navigation_discover"
+        android:name="com.example.movieapp.ui.Discover.DiscoverFragment"
+        android:label="@string/discover"
+        tools:layout="@layout/fragment_discover" >
+        <action
+            android:id="@+id/action_navigation_discover_to_navigation_details"
+            app:destination="@id/navigation_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.example.movieapp.ui.Favorites.FavoritesFragment"
+        android:label="@string/favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <argument
+            android:defaultValue="null"
+            android:name="MovieTitle"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="com.example.movieapp.ui.Details.DetailsFragment"
+        android:label="@string/details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="movieId"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_navigation_details_to_navigation_favorites"
+            app:destination="@id/navigation_favorites" />
+        <action
+            android:id="@+id/action_navigation_details_to_navigation_youtube"
+            app:destination="@id/navigation_youtube" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_youtube"
+        android:name="com.example.movieapp.ui.youTubeFragment"
+        android:label="youTubeFragment" >
+
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue=" " />
+        <argument
+            android:name="url"
+            app:argType="string"
+            android:defaultValue=" " />
+        <argument
+            android:name="movieId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+</navigation>

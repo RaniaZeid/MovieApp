@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.youTubeFragment"
+    >
+    <RelativeLayout
+        android:id="@+id/videoPlayerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.codewaves.youtubethumbnailview.ThumbnailView
+            android:id="@+id/videoThumbnailView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:youtube_titleVisible="true"
+            app:youtube_timeVisible="true"
+            android:transitionName="@string/TransitionVideo"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:progressTint="@color/black"/>
+
+        </com.codewaves.youtubethumbnailview.ThumbnailView>
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/videoPlayerView"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/playVideoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_below="@id/videoPlayerLayout"/>
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@id/playVideoTitle"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/videoPlayerRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/shadow"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/noResultFound"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/shadow"
+        android:text="@string/no_result_found"
+        android:textColor="#3e3e3e"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+
+
+
+</RelativeLayout>
